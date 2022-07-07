@@ -5,6 +5,7 @@
   "main": "",
   "scripts": {
     "dev": "concurrently \"cd backend && node server.js\" \"cd frontend && npm start\"",
+    "prod": "npm i && cd frontend && npm i && npm run build && cd .. && cd backend && npm i && node backend/server.js",
     "build": "npm i && cd frontend && npm i && npm run build && cd .. && cd backend && npm i ",
     "start": "node backend/server.js"
   },
