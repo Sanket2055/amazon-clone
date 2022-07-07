@@ -1,0 +1,17 @@
+{
+  "name": "amazon-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "dev": "concurrently \"cd backend && node server.js\" \"cd frontend && npm start\"",
+    "build": "npm i && cd frontend && npm i && npm run build && cd .. && cd backend && npm i ",
+    "start": "node backend/server.js"
+  },
+  "keywords": [],
+  "author": "Suyash Vikram Singh",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.2.2"
+  }
+}

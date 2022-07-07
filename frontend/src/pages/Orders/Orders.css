@@ -1,0 +1,59 @@
+.orders {
+  margin-top: 3em;
+  gap: 1em;
+  padding: 3em;
+}
+
+.orders--box {
+  background-color: rgb(255, 255, 255);
+}
+
+.orders--box--heading {
+  font-size: 2em;
+  padding: 0.5em 0em 0.5em 0.5em;
+}
+
+.orders--box--noorders {
+  font-weight: bolder;
+  padding: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
+}
+
+.orders--btn {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.orders-btn-clearcart,
+.orders-btn-placeorder {
+  background: rgb(255, 215, 34);
+  border: 0;
+  font-weight: normal;
+  width: 50%;
+  padding: 1em;
+  color: black;
+  border-radius: 0.5em;
+  cursor: pointer;
+  margin-top: 1em;
+  width: 80%;
+}
+
+.orders-btn-clearcart {
+  background-color: rgb(234, 237, 237);
+}
+
+.orders--btn--total_price {
+  font-weight: bolder;
+  font-size: 1.2em;
+  margin: 1em 0em;
+}
+
+.orders--btn--total_price--span {
+  font-weight: normal;
+}

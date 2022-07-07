@@ -1,0 +1,14 @@
+.home--poster {
+  width: 100%;
+  z-index: -1;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  margin-bottom: -300px;
+  margin-top: 3.5em;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  gap: 2em;
+  padding: 2em;
+}

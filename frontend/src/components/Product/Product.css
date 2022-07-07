@@ -1,0 +1,33 @@
+.product {
+  font-size: 1em;
+  background: rgb(255, 255, 255);
+  padding: 1em;
+  z-index: 1;
+}
+
+.product--info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.product--img {
+  height: 15em;
+}
+
+.product--rating {
+  margin: 0.75em 0em;
+}
+
+.product--info--addtocart {
+  background: rgb(255, 215, 34);
+  border: 0;
+  font-weight: normal;
+  width: 50%;
+  padding: 1em;
+  color: black;
+  border-radius: 2em;
+  cursor: pointer;
+  margin-top: 1em;
+}

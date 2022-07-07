@@ -1,0 +1,37 @@
+.OrderItem {
+  display: flex;
+  border-top: 1px solid rgb(206, 205, 205);
+  margin: 0em 2em 0em 2em;
+  padding: 2em 0em 2em 0em;
+}
+
+.OrderItem--info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.OrderItem--info--img {
+  width: 15em;
+}
+
+.OrderItem--info--name {
+  font-weight: bolder;
+  font-size: 1.2em;
+}
+
+.ckeckoutItem--quantity {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.OrderItem--quantity--quantity {
+  font-weight: normal;
+}
