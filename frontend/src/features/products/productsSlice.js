@@ -32,7 +32,6 @@ export const getOrders = createAsyncThunk("products/getOrders", async () => {
       Authorization: `Bearer ${globalToken}`,
     },
   });
-  console.log(response);
   return response.data;
 });
 

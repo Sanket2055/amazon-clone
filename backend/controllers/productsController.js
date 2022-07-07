@@ -28,7 +28,6 @@ const postProduct = asyncHandler(async (req, res) => {
 const updateProduct = asyncHandler(async (req, res) => {
   const { id } = req.params;
   if (id == null) {
-    console.log(id);
     res.status(400);
     throw new Error("Enter a product id");
   }
@@ -48,7 +47,6 @@ const updateProduct = asyncHandler(async (req, res) => {
 const deleteProduct = asyncHandler(async (req, res) => {
   const { id } = req.params;
   if (id == null) {
-    console.log(id);
     res.status(400);
     throw new Error("Enter a product id");
   }
