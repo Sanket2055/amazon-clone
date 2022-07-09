@@ -66,7 +66,6 @@ export const register = createAsyncThunk(
       email,
       password,
     });
-    console.log(response);
   }
 );
 
