@@ -61,11 +61,12 @@ export const order = createAsyncThunk("products/order", async (cartItems) => {
 export const register = createAsyncThunk(
   "products/register",
   async ({ name, email, password }) => {
-    await axios.post("/api/users", {
+    const response = await axios.post("/api/users", {
       name,
       email,
       password,
     });
+    console.log(response);
   }
 );
 
