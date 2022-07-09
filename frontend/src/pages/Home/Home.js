@@ -1,13 +1,13 @@
 import img from "../../img/poster.jpg";
 import Product from "../../components/Product/Product";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../features/products/productsSlice";
+import { getProducts } from "../../features/amazon/amazonSlice";
 import "./Home.css";
 import { useEffect } from "react";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { productsList } = useSelector((store) => store.products);
+  const { productsList } = useSelector((store) => store.amazon);
 
   useEffect(() => {
     dispatch(getProducts());

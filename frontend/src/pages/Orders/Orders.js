@@ -2,12 +2,12 @@ import "./Orders.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 import OrderItem from "../../components/OrderItem/OrderItem";
-import { getOrders } from "../../features/products/productsSlice";
+import { getOrders } from "../../features/amazon/amazonSlice";
 import { useEffect } from "react";
 
 const Orders = () => {
   const dispatch = useDispatch();
-  const { id, allOrders } = useSelector((store) => store.products);
+  const { id, allOrders } = useSelector((store) => store.amazon);
 
   useEffect(() => {
     if (id !== null) dispatch(getOrders());

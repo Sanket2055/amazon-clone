@@ -1,11 +1,11 @@
 import "./Login.css";
-import { login, logout, register } from "../../features/products/productsSlice";
+import { login, logout, register } from "../../features/amazon/amazonSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { isLoggedIn } = useSelector((store) => store.products);
+  const { isLoggedIn } = useSelector((store) => store.amazon);
   const dispatch = useDispatch();
 
   const [loginData, setLoginData] = useState({ email: "", password: "" });

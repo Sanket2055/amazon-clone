@@ -1,12 +1,12 @@
 import "./Product.css";
 import { useDispatch, useSelector } from "react-redux";
-import { onClickAdd } from "../../features/products/productsSlice";
+import { onClickAdd } from "../../features/amazon/amazonSlice";
 import StarRatings from "react-star-ratings";
 import toast from "react-hot-toast";
 
 const Product = ({ name, rating, img, price, _id }) => {
   const dispatch = useDispatch();
-  const { id } = useSelector((store) => store.products);
+  const { id } = useSelector((store) => store.amazon);
 
   const onClick = () => {
     if (id === null) {

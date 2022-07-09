@@ -1,6 +1,6 @@
 import "./CheckoutItem.css";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../../features/products/productsSlice";
+import { removeFromCart } from "../../features/amazon/amazonSlice";
 
 const CheckoutItem = ({ item }) => {
   const { quantity } = item;

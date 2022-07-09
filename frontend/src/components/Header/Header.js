@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const { itemsCount, name } = useSelector((store) => store.products);
+  const { itemsCount, name } = useSelector((store) => store.amazon);
 
   return (
     <div className="header">

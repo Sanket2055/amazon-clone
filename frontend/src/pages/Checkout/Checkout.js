@@ -1,14 +1,14 @@
 import "./Checkout.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import { clearCart, order } from "../../features/products/productsSlice";
+import { clearCart, order } from "../../features/amazon/amazonSlice";
 import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
 import toast from "react-hot-toast";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { cartItems, totalPrice, id } = useSelector((store) => store.products);
+  const { cartItems, totalPrice, id } = useSelector((store) => store.amazon);
 
   const onClickClearCart = () => {
     dispatch(clearCart());

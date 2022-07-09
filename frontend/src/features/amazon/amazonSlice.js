@@ -18,15 +18,12 @@ const initialState = {
   totalPrice: 0,
 };
 
-export const getProducts = createAsyncThunk(
-  "products/getProducts",
-  async () => {
-    const response = await axios.get("/api/products");
-    return response.data;
-  }
-);
+export const getProducts = createAsyncThunk("amazon/getProducts", async () => {
+  const response = await axios.get("/api/products");
+  return response.data;
+});
 
-export const getOrders = createAsyncThunk("products/getOrders", async () => {
+export const getOrders = createAsyncThunk("amazon/getOrders", async () => {
   const response = await axios.get("/api/orders", {
     headers: {
       Authorization: `Bearer ${globalToken}`,
@@ -35,7 +32,7 @@ export const getOrders = createAsyncThunk("products/getOrders", async () => {
   return response.data;
 });
 
-export const order = createAsyncThunk("products/order", async (cartItems) => {
+export const order = createAsyncThunk("amazon/order", async (cartItems) => {
   for (const cartItem of cartItems) {
     const { _id, name, img, price } = cartItem.item;
     const quantity = cartItem.quantity;
@@ -59,9 +56,9 @@ export const order = createAsyncThunk("products/order", async (cartItems) => {
 });
 
 export const register = createAsyncThunk(
-  "products/register",
+  "amazon/register",
   async ({ name, email, password }) => {
-    const response = await axios.post("/api/users", {
+    await axios.post("/api/users", {
       name,
       email,
       password,
@@ -70,7 +67,7 @@ export const register = createAsyncThunk(
 );
 
 export const login = createAsyncThunk(
-  "products/login",
+  "amazon/login",
   async ({ email, password }) => {
     const response = await axios.post("/api/users/login", {
       email,
@@ -80,7 +77,7 @@ export const login = createAsyncThunk(
   }
 );
 
-const productsSlice = createSlice({
+const amazonSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
@@ -184,6 +181,6 @@ const productsSlice = createSlice({
 });
 
 export const { reset, onClickAdd, clearCart, removeFromCart, logout } =
-  productsSlice.actions;
+  amazonSlice.actions;
 
-export default productsSlice.reducer;
+export default amazonSlice.reducer;
