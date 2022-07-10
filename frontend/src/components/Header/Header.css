@@ -78,13 +78,19 @@
 }
 
 @media only screen and (max-width: 840px) {
+  .header {
+    font-size: 1.02em;
+  }
+  .header--logo {
+    margin: 0em 0.2em 0em 0.2em;
+  }
   .header--search--inputbox {
-    display: none;
+    width: 4.6em;
+    font-size: 1.025em;
   }
   .header--search--searchlogo {
     border: 0;
     background-color: #febd69;
     padding: 0.2em;
-    border-radius: 0.1em;
   }
 }

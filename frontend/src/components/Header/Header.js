@@ -9,7 +9,6 @@ import { useState } from "react";
 const Header = () => {
   const { itemsCount, name } = useSelector((store) => store.amazon);
   const [search, setSearch] = useState("");
-  const [searchOpen, setSearchOpen] = useState(false);
   const navigate = useNavigate();
 
   const onChange = (e) => {
@@ -55,12 +54,6 @@ const Header = () => {
             <span className="header--nav--linetwo">& Orders</span>
           </div>
         </Link>
-        <a href="https://www.amazon.in/amazonprime" target="__blank">
-          <div className="header--nav--items">
-            <span className="header--nav--lineone">Your</span>
-            <span className="header--nav--linetwo">Prime</span>
-          </div>
-        </a>
         <Link to="/checkout">
           <div className="header--nav--cart">
             <ShoppingCartIcon />
