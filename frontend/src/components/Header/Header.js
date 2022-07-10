@@ -9,6 +9,7 @@ import { useState } from "react";
 const Header = () => {
   const { itemsCount, name } = useSelector((store) => store.amazon);
   const [search, setSearch] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
   const navigate = useNavigate();
 
   const onChange = (e) => {
