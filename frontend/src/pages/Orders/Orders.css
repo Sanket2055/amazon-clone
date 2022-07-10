@@ -57,3 +57,11 @@
 .orders--btn--total_price--span {
   font-weight: normal;
 }
+
+@media only screen and (max-width: 750px) {
+  .orders {
+    margin-top: 4em;
+    gap: 1em;
+    padding: 2em;
+  }
+}

@@ -12,3 +12,12 @@
   gap: 2em;
   padding: 2em;
 }
+
+@media only screen and (max-width: 840px) {
+  .home--poster {
+    display: none;
+  }
+  .products {
+    margin-top: 3em;
+  }
+}

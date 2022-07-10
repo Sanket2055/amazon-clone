@@ -76,3 +76,15 @@
 .heder--nav--cart--count {
   margin-left: 0.2em;
 }
+
+@media only screen and (max-width: 840px) {
+  .header--search--inputbox {
+    display: none;
+  }
+  .header--search--searchlogo {
+    border: 0;
+    background-color: #febd69;
+    padding: 0.2em;
+    border-radius: 0.1em;
+  }
+}

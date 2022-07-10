@@ -58,3 +58,38 @@
 .checkout--btn--total_price--span {
   font-weight: normal;
 }
+
+@media only screen and (max-width: 840px) {
+  .checkout {
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+  }
+
+  .checkout--box--noproduct {
+    font-weight: bolder;
+    padding: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+  }
+
+  .checkout-btn-clearcart,
+  .checkout-btn-placeorder {
+    background: rgb(255, 215, 34);
+    border: 0;
+    font-weight: normal;
+    padding: 1em;
+    color: black;
+    border-radius: 0.5em;
+    cursor: pointer;
+    margin-top: 1em;
+    width: 50%;
+  }
+
+  .checkout-btn-clearcart {
+    background-color: rgb(234, 237, 237);
+  }
+}
