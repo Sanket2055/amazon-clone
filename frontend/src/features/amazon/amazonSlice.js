@@ -18,8 +18,13 @@ const initialState = {
   totalPrice: 0,
 };
 
-export const getProducts = createAsyncThunk("amazon/getProducts", async () => {
-  const response = await axios.get("/api/products");
+export const getProducts = createAsyncThunk("amazon/getProducts", async (q) => {
+  if (q) {
+    const response = await axios.get(`/api/products?q=${q}`);
+    return response.data;
+  }
+
+  const response = await axios.get(`/api/products`);
   return response.data;
 });
 

@@ -34,6 +34,10 @@
 }
 
 .header--search--searchlogo {
+  cursor: pointer;
+}
+
+.header--search--searchlogo {
   border: 0;
   background-color: #febd69;
   padding: 0.2em;

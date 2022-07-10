@@ -3,8 +3,14 @@ const asyncHandler = require("express-async-handler");
 
 //GET /api/products
 const getProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find();
-  res.status(200).json({ msg: "successfull request", products });
+  const { q } = req.query;
+  if (q) {
+    const products = await Product.find({ name: new RegExp(q, "i") });
+    res.status(200).json({ msg: "successfull request", products });
+  } else {
+    const products = await Product.find();
+    res.status(200).json({ msg: "successfull request", products });
+  }
 });
 
 //POST /api/products

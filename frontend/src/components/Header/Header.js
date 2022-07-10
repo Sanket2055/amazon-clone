@@ -3,20 +3,42 @@ import "./Header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Header = () => {
   const { itemsCount, name } = useSelector((store) => store.amazon);
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const onClickSearch = (e) => {
+    e.preventDefault();
+    navigate(`/?q=${search}`);
+    setSearch("");
+  };
 
   return (
     <div className="header">
       <Link to="/">
         <img src={img} alt="Amazon Logo" className="header--logo" />
       </Link>
-      <div className="header--search">
-        <input type="text" className="header--search--inputbox" />
-        <SearchIcon className="header--search--searchlogo" />
-      </div>
+      <form className="header--search" onSubmit={(e) => onClickSearch(e)}>
+        <input
+          type="text"
+          name="search"
+          className="header--search--inputbox"
+          value={search}
+          onChange={(e) => onChange(e)}
+        />
+        <SearchIcon
+          className="header--search--searchlogo"
+          onClick={onClickSearch}
+        />
+      </form>
       <div className="header--nav">
         <Link to="/login">
           <div className="header--nav--items">

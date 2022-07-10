@@ -4,14 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../features/amazon/amazonSlice";
 import "./Home.css";
 import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
+  const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const { productsList } = useSelector((store) => store.amazon);
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    dispatch(getProducts(searchParams.get("q")));
+  }, [dispatch, searchParams]);
 
   return (
     <div className="home">
