@@ -4,10 +4,9 @@
   "description": "",
   "main": "",
   "scripts": {
-    "dev": "concurrently \"cd backend && node server.js\" \"cd frontend && npm start\"",
-    "build": "npm i && cd frontend && npm i && npm run build && cd .. && cd backend && npm i ",
     "start": "node backend/server.js",
-    "prod": "npm run build && npm start"
+    "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build",
+    "dev": "concurrently \"cd backend && node server.js\" \"cd frontend && npm start\""
   },
   "keywords": [],
   "author": "Suyash Vikram Singh",
