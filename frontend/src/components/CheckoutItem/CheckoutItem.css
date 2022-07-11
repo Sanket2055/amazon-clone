@@ -14,7 +14,8 @@
 }
 
 .checkoutItem--info--img {
-  width: 15em;
+  max-height: 15em;
+  width: auto;
 }
 
 .checkoutItem--info--name {
