@@ -71,6 +71,49 @@ While the backend is running, send POST request to http://localhost:5000/api/pro
 
 ## Features
 
+### Register and Login
+
+<div align='center'>
+  <img src="https://user-images.githubusercontent.com/80644262/178795995-2bddd6b1-068f-4a6a-852d-e69772d91112.jpg" width=95% alt="">
+  <img src="https://user-images.githubusercontent.com/80644262/178795999-17f5d2f6-601f-48b9-b99e-6b3406b7f2b6.jpg" width=95% alt="">
+  <img src="https://user-images.githubusercontent.com/80644262/178796001-c8a6a551-721f-494e-b904-db34a9ebd0e2.jpg" width=95% alt="">
+</div>
+
+### Searching
+
+<div align='center'>
+  <img src="https://user-images.githubusercontent.com/80644262/178798744-877f29c4-a6ef-473c-9044-a89b7ec96d7e.jpg" width=95% alt="">
+  <img src="https://user-images.githubusercontent.com/80644262/178798765-ebbda387-e776-45ea-ba28-f629ff886a7c.jpg" width=95% alt="">
+ 
+</div>
+
+### Add to Cart
+
+<div align='center'>
+  <img src="https://user-images.githubusercontent.com/80644262/178796003-b60f7956-04d4-4d61-9db6-971391efa0a5.jpg" width=95% alt="">
+  <img src="https://user-images.githubusercontent.com/80644262/178796016-64a4beaf-1b6b-4af4-a0bd-740860b5c333.jpg" width=95% alt=""> 
+</div>
+
+### Place order
+
+<div align='center'>
+  <img src="https://user-images.githubusercontent.com/80644262/178796023-934ef75b-e3f5-4927-88d0-1bd820680a13.jpg" width=95% alt="">
+</div>
+
+### Clear cart
+
+<div align='center'>
+  <img src="https://user-images.githubusercontent.com/80644262/178796024-83cadc97-2f1a-44b1-a85a-b32d24cb7e3e.jpg" width=95% alt="">
+  <img src="https://user-images.githubusercontent.com/80644262/178796027-3d5e0ce0-1e18-4af7-88d9-39507c251765.jpg" width=95% alt=""> 
+</div>
+
+### Sign out
+
+<div align='center'>
+  <img src="https://user-images.githubusercontent.com/80644262/178796032-4816e94a-5679-474a-8270-f5bf430ad28c.jpg" width=95% alt="">
+  <img src="https://user-images.githubusercontent.com/80644262/178796034-9a4b7eb7-63e2-4353-80e7-7f25b9b90e31.jpg" width=95% alt=""> 
+</div>
+
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
