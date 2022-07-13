@@ -28,11 +28,11 @@ const Login = () => {
     const { name, email, password, password2 } = registerData;
 
     if (!name || !email || !password || !password2) {
-      toast(`Enter all fields`, {
+      toast.error(`Enter all fields`, {
         duration: 1000,
       });
     } else if (password !== password2 || password === "") {
-      toast(`Passwords don't match`, {
+      toast.error(`Passwords don't match`, {
         duration: 1000,
       });
     } else {

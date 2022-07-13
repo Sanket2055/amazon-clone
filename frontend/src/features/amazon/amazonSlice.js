@@ -130,7 +130,7 @@ const amazonSlice = createSlice({
       localStorage.removeItem("token");
       localStorage.removeItem("id");
       localStorage.removeItem("name");
-      toast(`Successfully logged out`, {
+      toast.success(`Successfully logged out`, {
         duration: 3000,
       });
     },
@@ -151,23 +151,23 @@ const amazonSlice = createSlice({
       state.token = token;
       state.name = name;
       state.id = id;
-      toast(`Hello ${name}`, {
+      toast.success(`Hello ${name}`, {
         duration: 1000,
       });
     },
     [login.rejected]: (state, action) => {
-      toast(`Wrong credentials`, {
+      toast.error(`Wrong credentials`, {
         duration: 1000,
       });
     },
 
     [register.fulfilled]: (state, action) => {
-      toast(`Successfully registered, login to continue`, {
+      toast.success(`Successfully registered, login to continue`, {
         duration: 3000,
       });
     },
     [register.rejected]: (state, action) => {
-      toast(`Email already exists`, {
+      toast.error(`Email already exists`, {
         duration: 1000,
       });
     },

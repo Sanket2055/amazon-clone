@@ -10,14 +10,14 @@ const Product = ({ name, rating, img, price, _id }) => {
 
   const onClick = () => {
     if (id === null) {
-      toast(`Please login`, {
+      toast.error(`Please login`, {
         duration: 1000,
       });
       return;
     }
 
     dispatch(onClickAdd({ _id, name, img, price, rating }));
-    toast(`Added ${name} to cart`, {
+    toast.success(`Added ${name} to cart`, {
       duration: 1000,
     });
   };

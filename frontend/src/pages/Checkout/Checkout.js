@@ -12,7 +12,7 @@ const Checkout = () => {
 
   const onClickClearCart = () => {
     dispatch(clearCart());
-    toast(`Cart cleared`, {
+    toast.success(`Cart cleared`, {
       duration: 1000,
     });
   };
@@ -21,11 +21,11 @@ const Checkout = () => {
     if (cartItems.length !== 0) {
       await dispatch(order(cartItems));
       navigate("/orders");
-      toast(`Order placed`, {
+      toast.success(`Order placed`, {
         duration: 1000,
       });
     } else {
-      toast(`Nothing to order`, {
+      toast.error(`Nothing to order`, {
         duration: 1000,
       });
     }
