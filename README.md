@@ -63,7 +63,7 @@ Follow the steps below to get the run the app in the local environment
 
 ### Fill products collection
 
-While the backend is running, send POST requrest to http://localhost:5000/api/products to populate the products available on the Home page
+While the backend is running, send POST request to http://localhost:5000/api/products to populate the products available on the Home page
 
 <div align='center'>
   <img src="https://user-images.githubusercontent.com/80644262/178810869-0b42c871-eed2-44ef-a3bd-58338942ca6a.png" alt="POST sample">
