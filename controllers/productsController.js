@@ -49,22 +49,4 @@ const updateProduct = asyncHandler(async (req, res) => {
   res.status(201).json({ msg: "Product updated", updatedProduct });
 });
 
-//DELETE/api/products/:id
-const deleteProduct = asyncHandler(async (req, res) => {
-  const { id } = req.params;
-  if (id == null) {
-    res.status(400);
-    throw new Error("Enter a product id");
-  }
-
-  const product = await Product.findById(id);
-  if (!product) {
-    res.status(400);
-    throw new Error("Product does not exist");
-  }
-
-  await Product.findByIdAndDelete(id, req.body);
-  res.status(201).json({ msg: "Product deleted" });
-});
-
-module.exports = { getProducts, postProduct, updateProduct, deleteProduct };
+module.exports = { getProducts, postProduct, updateProduct };
