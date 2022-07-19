@@ -12,6 +12,7 @@
 </div>
 
 ## Demo
+
 - <a href='http://194.195.112.138' target="_blank">Hosted on Linode</a>
 - <a href='https://svs-amazon-clone.herokuapp.com' target="_blank">Hosted on Heroku</a>
 
@@ -68,6 +69,10 @@ Follow the steps below to get run the app in the local environment.
 ### Fill products collection
 
 While the backend is running, send a POST request to http://localhost:5000/api/products to populate the products available on the Home page.
+
+### Info regarding payment
+
+Enter the card number: 378282246310005 for all orders for successfull transaction.
 
 <div align='center'>
   <img src="https://user-images.githubusercontent.com/80644262/178810869-0b42c871-eed2-44ef-a3bd-58338942ca6a.png" alt="POST sample">
