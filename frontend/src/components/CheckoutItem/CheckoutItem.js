@@ -8,7 +8,7 @@ const CheckoutItem = ({ item }) => {
   const dispatch = useDispatch();
 
   const onClickRemove = () => {
-    dispatch(removeFromCart({ _id }));
+    dispatch(removeFromCart({ name, price, img, _id, quantity }));
   };
 
   return (

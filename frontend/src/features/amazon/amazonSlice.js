@@ -37,37 +37,54 @@ export const getOrders = createAsyncThunk("amazon/getOrders", async () => {
   return response.data;
 });
 
-export const order = createAsyncThunk("amazon/order", async (cartItems) => {
-  for (const cartItem of cartItems) {
-    const { _id, name, img, price } = cartItem.item;
-    const quantity = cartItem.quantity;
-    await axios.post(
-      "/api/orders",
-      {
-        productId: _id,
-        name,
-        img,
-        price,
-        quantity,
-        userId: id,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${globalToken}`,
+export const order = createAsyncThunk(
+  "amazon/order",
+  async ({ cartItems, token, totalPrice }, thunkAPI) => {
+    const response = await axios.post("/api/checkout", {
+      token,
+      cartItems,
+      totalPrice,
+    });
+    const { status } = await response.data;
+
+    if (status !== "success") {
+      return thunkAPI.rejectWithValue();
+    }
+    for (const cartItem of cartItems) {
+      const { _id, name, img, price } = cartItem.item;
+      const quantity = cartItem.quantity;
+      await axios.post(
+        "/api/orders",
+        {
+          productId: _id,
+          name,
+          img,
+          price,
+          quantity,
+          userId: id,
         },
-      }
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${globalToken}`,
+          },
+        }
+      );
+    }
   }
-});
+);
 
 export const register = createAsyncThunk(
   "amazon/register",
-  async ({ name, email, password }) => {
-    await axios.post("/api/users", {
-      name,
-      email,
-      password,
-    });
+  async ({ name, email, password }, thunkAPI) => {
+    try {
+      await axios.post("/api/users", {
+        name,
+        email,
+        password,
+      });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.error);
+    }
   }
 );
 
@@ -112,9 +129,10 @@ const amazonSlice = createSlice({
     },
 
     removeFromCart: (state, { payload }) => {
-      const id = payload._id;
-      state.cartItems = state.cartItems.filter((item) => item.item._id !== id);
-      state.itemsCount = state.itemsCount - 1;
+      const { price, _id, quantity } = payload;
+      state.cartItems = state.cartItems.filter((item) => item.item._id !== _id);
+      state.itemsCount = state.itemsCount - quantity;
+      state.totalPrice = state.totalPrice - price * quantity;
     },
 
     logout: (state, action) => {
@@ -166,8 +184,8 @@ const amazonSlice = createSlice({
         duration: 3000,
       });
     },
-    [register.rejected]: (state, action) => {
-      toast.error(`Email already exists`, {
+    [register.rejected]: (state, { payload }) => {
+      toast.error(payload, {
         duration: 1000,
       });
     },
@@ -176,6 +194,11 @@ const amazonSlice = createSlice({
       state.itemsCount = 0;
       state.totalPrice = 0;
       state.cartItems = [];
+    },
+    [order.rejected]: (state, action) => {
+      toast.error("Payment failed", {
+        duration: 1000,
+      });
     },
 
     [getOrders.fulfilled]: (state, { payload }) => {
