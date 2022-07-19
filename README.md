@@ -20,7 +20,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Users can create a new account, add and browse items, search for items, add items to the cart and place orders. Users can access their order history as expected in a real-life app.
+Users can create a new account, add and browse items, search for items, add items to the cart, place orders and make payments. Users can access their order history as expected in a real-life app.
 
 ### Built With
 
@@ -70,13 +70,13 @@ Follow the steps below to get run the app in the local environment.
 
 While the backend is running, send a POST request to http://localhost:5000/api/products to populate the products available on the Home page.
 
-### Info regarding payment
-
-Enter the card number: 378282246310005 for all orders for successfull transaction.
-
 <div align='center'>
   <img src="https://user-images.githubusercontent.com/80644262/178810869-0b42c871-eed2-44ef-a3bd-58338942ca6a.png" alt="POST sample">
 </div>
+
+### Information regarding payments
+
+Enter the card number: 378282246310005 for all orders for a successful transaction.
 
 ## Features
 
