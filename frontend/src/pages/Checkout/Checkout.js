@@ -73,7 +73,7 @@ const Checkout = () => {
           stripeKey="pk_test_51LN1xFSFXPK1gBPWkoFKNVWNyw045v2BvCAG29SU7oCZ3rHBOWrBaugdryUGP6lrl37EDb2IsaAiqXyvYmdfGrOP002HqIKdye"
           token={handleToken}
           amount={totalPrice * 100}
-          currency="inr"
+          currency="INR"
           name={name}
           billingAddress
           shippingAddress

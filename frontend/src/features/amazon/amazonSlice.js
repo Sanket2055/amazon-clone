@@ -45,9 +45,10 @@ export const order = createAsyncThunk(
       cartItems,
       totalPrice,
     });
-    const { status } = await response.data;
+    console.log(response);
+    const { success } = response.data;
 
-    if (status !== "success") {
+    if (!success) {
       return thunkAPI.rejectWithValue();
     }
     for (const cartItem of cartItems) {

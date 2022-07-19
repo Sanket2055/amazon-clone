@@ -17,56 +17,20 @@ app.use("/api/products", require("./routes/api/products"));
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/orders", require("./routes/api/orders.js"));
 app.post("/api/checkout", async (req, res) => {
-  let status;
-  let error;
+  const { cartItems, token, totalPrice } = req.body;
   try {
-    const { cartItems, token, totalPrice } = req.body;
-
-    const customer = await stripe.customers.create({
-      email: token.email,
-      source: token.id,
+    const payment = await stripe.paymentIntents.create({
+      amount: totalPrice * 100,
+      currency: "INR",
+      payment_method: "pm_card_amex_threeDSecureNotSupported",
+      confirm: true,
+      currency: "INR",
     });
-
-    const idempotencyKey = v4();
-    const paymentIntent = await stripe.paymentIntents.create(
-      {
-        amount: totalPrice * 100,
-        currency: "inr",
-        customer: customer.id,
-        receipt_email: token.email,
-        payment_method: "pm_card_visa",
-        payment_method_options: {
-          card: {
-            request_three_d_secure: "any",
-          },
-        },
-        shipping: {
-          name: token.card.name,
-          address: {
-            line1: token.card.address_line1,
-            line2: token.card.address_line2,
-            city: token.card.address_city,
-            country: token.card.address_country,
-            postal_code: token.card.address_zip,
-          },
-        },
-      },
-      {
-        idempotencyKey,
-      }
-    );
-    console.log(paymentIntent);
-
-    const confirmPaymentIntent = await stripe.paymentIntents.confirm(
-      paymentIntent.id,
-      { payment_method: paymentIntent.payment_method }
-    );
-    status = "success";
+    res.json({ success: true });
   } catch (error) {
     console.log(error);
-    status = "failure";
+    res.status(404).json({ success: false });
   }
-  res.json({ error, status });
 });
 connectDB();
 
