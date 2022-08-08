@@ -5,9 +5,7 @@ const { connectDB } = require("./config/db");
 const { errorHandler } = require("./middleware/errorHandler");
 const path = require("path");
 require("dotenv").config();
-const { v4 } = require("uuid");
 const cors = require("cors");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -15,23 +13,9 @@ app.use(cors());
 
 app.use("/api/products", require("./routes/api/products"));
 app.use("/api/users", require("./routes/api/users"));
-app.use("/api/orders", require("./routes/api/orders.js"));
-app.post("/api/checkout", async (req, res) => {
-  const { cartItems, token, totalPrice } = req.body;
-  try {
-    const payment = await stripe.paymentIntents.create({
-      amount: totalPrice * 100,
-      currency: "INR",
-      payment_method: "pm_card_amex_threeDSecureNotSupported",
-      confirm: true,
-      currency: "INR",
-    });
-    res.json({ success: true });
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ success: false });
-  }
-});
+app.use("/api/orders", require("./routes/api/orders"));
+app.use("/api/checkout", require("./routes/api/checkout"));
+
 connectDB();
 
 app.use(express.static(path.join(__dirname, "./frontend/build")));
