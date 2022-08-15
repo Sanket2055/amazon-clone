@@ -21,9 +21,11 @@ const Login = () => {
   const onClickSignIn = async (e) => {
     e.preventDefault();
     const { email, password } = loginData;
-    await dispatch(login({ email, password }));
+    const res = await dispatch(login({ email, password }));
+    if (!res.error) {
+      navigate("/");
+    }
     setLoginData({ email: "", password: "" });
-    navigate("/");
   };
 
   const onClickRegister = async (e) => {
