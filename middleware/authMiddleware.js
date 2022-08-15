@@ -1,4 +1,3 @@
-const User = require("../models/UserModel");
 const asyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -20,7 +19,7 @@ const protect = asyncHandler(async (req, res, next) => {
 
   try {
     token = token.split(" ")[1];
-    const { id } = await jwt.verify(token, process.env.JWT_SECRET);
+    const { id } = jwt.verify(token, process.env.JWT_SECRET);
     req.user = id;
     next();
   } catch (error) {

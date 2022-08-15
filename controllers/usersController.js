@@ -53,7 +53,7 @@ const login = asyncHandler(async (req, res) => {
     msg: "Successfully logged in",
     id: user._id,
     name: user.name,
-    token: await generatejwt(user._id),
+    token: generatejwt(user._id),
   });
 });
 

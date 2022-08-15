@@ -2,11 +2,13 @@ import "./Login.css";
 import { login, logout, register } from "../../features/amazon/amazonSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const { isLoggedIn } = useSelector((store) => store.amazon);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [registerData, setRegisterData] = useState({
@@ -21,6 +23,7 @@ const Login = () => {
     const { email, password } = loginData;
     await dispatch(login({ email, password }));
     setLoginData({ email: "", password: "" });
+    navigate("/");
   };
 
   const onClickRegister = async (e) => {

@@ -1,5 +1,4 @@
-// eslint-disable-next-line
-import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -45,7 +44,6 @@ export const order = createAsyncThunk(
       cartItems,
       totalPrice,
     });
-    console.log(response);
     const { success } = response.data;
 
     if (!success) {
@@ -123,7 +121,7 @@ const amazonSlice = createSlice({
       state.itemsCount++;
     },
 
-    clearCart: (state, action) => {
+    clearCart: (state) => {
       state.itemsCount = 0;
       state.cartItems = [];
       state.totalPrice = 0;
@@ -136,7 +134,7 @@ const amazonSlice = createSlice({
       state.totalPrice = state.totalPrice - price * quantity;
     },
 
-    logout: (state, action) => {
+    logout: (state) => {
       state.token = null;
       state.name = null;
       state.id = null;
@@ -174,13 +172,13 @@ const amazonSlice = createSlice({
         duration: 1000,
       });
     },
-    [login.rejected]: (state, action) => {
+    [login.rejected]: () => {
       toast.error(`Wrong credentials`, {
         duration: 1000,
       });
     },
 
-    [register.fulfilled]: (state, action) => {
+    [register.fulfilled]: () => {
       toast.success(`Successfully registered, login to continue`, {
         duration: 3000,
       });
@@ -191,12 +189,12 @@ const amazonSlice = createSlice({
       });
     },
 
-    [order.fulfilled]: (state, action) => {
+    [order.fulfilled]: (state) => {
       state.itemsCount = 0;
       state.totalPrice = 0;
       state.cartItems = [];
     },
-    [order.rejected]: (state, action) => {
+    [order.rejected]: () => {
       toast.error("Payment failed", {
         duration: 1000,
       });
